@@ -7,8 +7,8 @@ import {
   NavLink,
 } from "react-router-dom";
 import Databasepage from "./components/databasepage";
-import Navbar from "./components/navbar";
-import Onduty from "./components/onduty";
+import Openclosed from "./components/openclosed";
+import GetDoctors from "./components/onduty";
 import Patientlist from "./components/patientlist";
 import Signup from "./components/signup";
 import Welcome from "./components/welcome";
@@ -19,23 +19,41 @@ function App() {
       <div className="topnav">
         <header className="App-header"></header>
         <nav>
-          <NavLink activeStyle={{ fontWeight: "bold" }} to="/" exact>
+          <NavLink
+            className="Toolbar"
+            activeStyle={{ fontWeight: "bold" }}
+            to="/"
+            exact
+          >
             Home
           </NavLink>
-          <NavLink activeStyle={{ fontWeight: "bold" }} to="/onduty">
+          <NavLink
+            className="Toolbar"
+            activeStyle={{ fontWeight: "bold" }}
+            to="/onduty"
+          >
             Doctor Schedule
           </NavLink>
-          <NavLink activeStyle={{ fontWeight: "bold" }} to="/signup">
+          <NavLink
+            className="Toolbar"
+            activeStyle={{ fontWeight: "bold" }}
+            to="/signup"
+          >
             Patient Signup
           </NavLink>
-          <NavLink activeStyle={{ fontWeight: "bold" }} to="/database">
+          <NavLink
+            className="Toolbar"
+            activeStyle={{ fontWeight: "bold" }}
+            to="/database"
+          >
             Patient Database
           </NavLink>
         </nav>
       </div>
       <Switch>
         <Route path="/onduty">
-          <Onduty />
+          <GetDoctors />
+          <Openclosed />
         </Route>
         <Route path="/signup">
           <Signup />
@@ -44,6 +62,7 @@ function App() {
           <Databasepage />
         </Route>
         <Route exact path="/">
+          <Openclosed />
           <Welcome />
         </Route>
       </Switch>
@@ -52,3 +71,9 @@ function App() {
 }
 
 export default App;
+
+// const onduty = [
+//   {name: "Dr. Coventry"}
+//   { name: "Dr. Adenet" },
+//   { name: "Dr. Tollady" },
+// ];
